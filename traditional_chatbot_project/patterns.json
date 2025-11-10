@@ -1,0 +1,85 @@
+{
+  "capabilities": [
+    "Rule-based intent recognition with regex patterns",
+    "Finite-state dialog for a pizza ordering flow",
+    "Fallback handling for malformed inputs",
+    "Help and capabilities listing",
+    "Resettable conversation state without ML/LLM dependencies"
+  ],
+  "help_text": "I'm a traditional, rule-based chatbot. Ask me about greetings, time, date, or start an 'order pizza' demo.",
+  "intents": {
+    "greet": {
+      "pattern": "^(hi|hello|hey|good (morning|afternoon|evening))",
+      "responses": ["Hello! 👋", "Hi there!", "Hey! How can I help?"]
+    },
+    "goodbye": {
+      "pattern": "(bye|goodbye|see you|later)",
+      "responses": ["Goodbye!", "See you later!", "Take care!"]
+    },
+    "time_query": {
+      "pattern": "(what's the time|what is the time|current time|time is it)",
+      "responses": ["I don't know the exact time here, but your OS clock does! 🕒"]
+    },
+    "date_query": {
+      "pattern": "(what's the date|what is the date|today's date|date is it)",
+      "responses": ["I can't read the system date in this demo, but check your calendar. 📅"]
+    },
+
+    "size_small": {
+      "pattern": "small",
+      "responses": ["small"]
+    },
+    "size_medium": {
+      "pattern": "medium",
+      "responses": ["medium"]
+    },
+    "size_large": {
+      "pattern": "large",
+      "responses": ["large"]
+    },
+
+    "crust_thin": {
+      "pattern": "thin",
+      "responses": ["thin"]
+    },
+    "crust_regular": {
+      "pattern": "(regular|normal)",
+      "responses": ["regular"]
+    },
+    "crust_deep": {
+      "pattern": "deep",
+      "responses": ["deep-dish"]
+    },
+
+    "topping_pepperoni": {
+      "pattern": "pepperoni",
+      "responses": ["pepperoni"]
+    },
+    "topping_mushrooms": {
+      "pattern": "mushrooms?",
+      "responses": ["mushrooms"]
+    },
+    "topping_onions": {
+      "pattern": "onions?",
+      "responses": ["onions"]
+    },
+    "topping_olives": {
+      "pattern": "olives?",
+      "responses": ["olives"]
+    },
+
+    "confirm_yes": {
+      "pattern": "^(yes|yep|yeah|confirm)$",
+      "responses": ["Yes"]
+    },
+    "confirm_no": {
+      "pattern": "^(no|nope|cancel order|reject)$",
+      "responses": ["No"]
+    },
+
+    "cancel_dialog": {
+      "pattern": "(cancel|stop|end)",
+      "responses": ["Canceled"]
+    }
+  }
+}
