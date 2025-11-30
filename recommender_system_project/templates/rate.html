@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Rate Movies</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Rate Movies (Optional)</h1>
+    <p>User ID: {{ user_id }}</p>
+    <p>You can provide ratings for a few popular movies. In this minimal prototype, these ratings are not yet fed back into the model, but they can be logged for future extensions.</p>
+
+    <form method="post">
+        <table>
+            <tr>
+                <th>Movie</th>
+                <th>Average Rating</th>
+                <th>Number of Ratings</th>
+                <th>Your Rating</th>
+            </tr>
+            {% for m in movies %}
+                <tr>
+                    <td>{{ m.title }}</td>
+                    <td>{{ m.avg_rating }}</td>
+                    <td>{{ m.rating_count }}</td>
+                    <td>
+                        <select name="movie_{{ m.movie_id }}">
+                            <option value="">--</option>
+                            {% for r in [1, 2, 3, 4, 5] %}
+                                <option value="{{ r }}">{{ r }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <button type="submit">Get Recommendations</button>
+    </form>
+</div>
+</body>
+</html>

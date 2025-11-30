@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Recommendations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Recommended Movies</h1>
+    <p>User ID: {{ user_id }}</p>
+    <p>These movies are recommended based on your profile and other users' ratings.</p>
+
+    {% if recommendations %}
+        <table>
+            <tr>
+                <th>Movie</th>
+                <th>Predicted Rating</th>
+                <th>Explanation</th>
+            </tr>
+            {% for r in recommendations %}
+                <tr>
+                    <td>{{ r.title }}</td>
+                    <td>{{ r.pred_rating }}</td>
+                    <td>{{ r.explanation }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No recommendations could be generated. Try a different user ID.</p>
+    {% endif %}
+
+    <p><a href="{{ url_for('index') }}">Start over</a></p>
+</div>
+</body>
+</html>
